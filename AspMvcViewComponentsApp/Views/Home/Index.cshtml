@@ -1,0 +1,16 @@
+﻿@using AspMvcViewComponentsApp.Components
+@addTagHelper *, AspMvcViewComponentsApp
+
+@{
+    ViewData["Title"] = "Home Page";
+    Employee sammy = new() { Name = "Sammy", Age = 25 };
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <h3>@await Component.InvokeAsync("Date", new { isLong = true })</h3>
+    <h3><vc:date is-long="false" /></h3>
+
+    <h3>@await Component.InvokeAsync("EmployeeInfo", new { employee = sammy })</h3>
+    <h3><vc:employee-info employee="sammy" /></h3>
+</div>
